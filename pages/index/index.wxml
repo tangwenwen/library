@@ -1,0 +1,52 @@
+<!--index.wxml-->
+<view class="borrow-msgs" wx:if="{{borrowMessage.length>0}}">
+  <view wx:for="{{borrowMessage}}" class="message">
+    <view class="msg-time">{{item.time}}</view>
+    <view class="msg-title">借书请求</view>
+    <view class="msg-content">
+      <view>
+        <text class="borrower">{{item.borrower}}</text> 请求借阅 <text class="book-name"> {{item.book}}</text>    
+      </view>
+      <view>
+        <text>微信号-</text> <text class="wxNum">{{item.wxNum}}</text>
+      </view>
+      <view>
+        <text>手机号-</text> <text class="phoneNum">{{item.phoneNum}}</text>
+      </view>
+      <view>
+        <text>留言-</text> <text class="borrower-msg">{{item.msg || '无留言'}}</text>
+      </view>
+    </view>
+    <view class="msg-operation">
+      <text class="reject" bindtap="respond" data-index="{{index}}" data-type="reject">拒绝借阅</text>
+      <button class="agree" bindtap="respond" data-index="{{index}}" data-type="agree">同意借阅</button>
+    </view>
+  </view>
+</view>
+<!-- <view class="map-localize">
+  <text class="position"></text>
+</view> -->
+<view class="main">
+  <view class='introduce'>
+  <view class="book-icon">
+    <image src="../../images/book-icon.png"></image>
+  </view>
+    <view class='paragraph'>流动图书馆是一个图书漂流和借阅工具，旨在共享闲置图书，并链接趣味相投的小伙伴。</view>
+     <!-- <view class='paragraph'>为保障用户的利益及安全，流动图书馆目前仅限于金山集团内部范围使用</view>  -->
+     <view class='paragraph'>漂流图书到公司或学校，结识志趣一致的TA，快来开始你的图书漂流之旅吧~</view>
+  </view>
+  <view class='scan'>
+    <button class='scan-btn' bindtap='saoma'>
+    <image src="../../images/scan.png" class="scan-img"></image>扫一扫漂流图书
+    </button>
+  </view>
+</view>
+<view class='new-books'>
+  <view class='new-books-header'>
+    <text class="new-books-header-title">新书速递</text>
+    <!-- <text class="new-books-all">全部 ></text> -->
+  </view>
+  <scroll-view scroll-x="true" class="new-books-content" style="white-space: nowrap">
+    <image wx:for="{{newBooks}}" src="{{item.image}}" bindtap="toBorrowBook" data-isbn="{{item.isbn}}" data-bookid="{{item._id}}" class="new-book"></image>
+  </scroll-view>
+</view>
