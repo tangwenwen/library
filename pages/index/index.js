@@ -4,6 +4,7 @@ const app = getApp()
 
 Page({
   data: {
+    bookisbn:"1",
     motto: 'Hello World',
     userInfo: {},
     hasUserInfo: false,
@@ -15,15 +16,48 @@ Page({
       url: '../logs/logs'
     })
   },
-
+   //扫码函数
   saoma: function () {
+    var myThis = this;
+    
     wx.scanCode({
+      
       onlyFromCamera:false,
       scanType:['qrCode','barCode'],
       success:function(res){
         console.log(res);
+        console.log(res.result);
+        myThis.setData({
+          bookisbn: res.result,
+        })
+
+        wx.showToast({
+
+          title: '扫描成功',
+
+          icon: 'success',
+
+          duration: 2000
+
+        })
+
+      },
+      fail:function(err){
+        console.log(err);
+
+        wx.showToast({
+
+          title: '扫描失败',
+
+          icon: 'success',
+
+          duration: 2000
+
+        })
       }
+
     })
+    
   },
 
   onLoad: function () {

@@ -5,10 +5,10 @@ Page({
    */
   data: {
     bookList: [
-      { ISBN13: "9789889955915", image: "/images/book-icon.png", title: "数据库挖掘", author: "斯塔夫", price: "88", publisher: "华理出版社", qty: "1" },
-      { ISBN13: "9789889955915", image: "/images/book-icon.png", title: "数据库挖掘", author: "斯塔夫", price: "88", publisher: "华理出版社", qty: "1" },
-      { ISBN13: "9789889955915", image: "/images/book-icon.png", title: "数据库挖掘", author: "斯塔夫", price: "88", publisher: "华理出版社", qty: "1" },
-      { ISBN13: "9789889955915", image: "/images/book-icon.png", title: "数据库挖掘", author: "斯塔夫", price: "88", publisher: "华理出版社", qty: "1" },
+      { ISBN13: "9789889955915", image: "/images/book-icon.png", bookName: "数据库挖掘", author: "斯塔夫", bookKind: "88", press: "华理出版社", publishData: "1" },
+      { ISBN13: "9789889955915", image: "/images/book-icon.png", bookName: "数据库挖掘", author: "斯塔夫", bookKind: "88", press: "华理出版社", publishData: "1" },
+      { ISBN13: "9789889955915", image: "/images/book-icon.png", bookName: "数据库挖掘", author: "斯塔夫", bookKind: "88", press: "华理出版社", publishData: "1" },
+      { ISBN13: "9789889955915", image: "/images/book-icon.png", bookName: "数据库挖掘", author: "斯塔夫", bookKind: "88", press: "华理出版社", publishData: "1" },
     ]
   },
 

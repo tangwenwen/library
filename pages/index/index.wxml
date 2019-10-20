@@ -31,22 +31,25 @@
   <view class="book-icon">
     <image src="../../images/book-icon.png"></image>
   </view>
-    <view class='paragraph'>流动图书馆是一个图书漂流和借阅工具，旨在共享闲置图书，并链接趣味相投的小伙伴。</view>
-     <!-- <view class='paragraph'>为保障用户的利益及安全，流动图书馆目前仅限于金山集团内部范围使用</view>  -->
-     <view class='paragraph'>漂流图书到公司或学校，结识志趣一致的TA，快来开始你的图书漂流之旅吧~</view>
+    <view class='paragraph'>图书借阅平台是一个能让众多热爱读书的朋友们互相分享自己喜爱的书籍的优秀平台</view>
+     <view class='paragraph'>希望各位能找到和自己志同道合的朋友们，一起沉浸在书的海洋之中</view>
   </view>
   <view class='scan'>
     <button class='scan-btn' bindtap='saoma'>
-    <image src="../../images/scan.png" class="scan-img"></image>扫一扫漂流图书
+    <image src="../../images/scan.png" class="scan-img"></image>添加图书
     </button>
   </view>
 </view>
 <view class='new-books'>
   <view class='new-books-header'>
     <text class="new-books-header-title">新书速递</text>
-    <!-- <text class="new-books-all">全部 ></text> -->
+
+
+
   </view>
   <scroll-view scroll-x="true" class="new-books-content" style="white-space: nowrap">
     <image wx:for="{{newBooks}}" src="{{item.image}}" bindtap="toBorrowBook" data-isbn="{{item.isbn}}" data-bookid="{{item._id}}" class="new-book"></image>
+
+       <view><text>内容为：{{bookisbn}}</text></view>
   </scroll-view>
 </view>

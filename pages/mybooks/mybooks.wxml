@@ -15,11 +15,11 @@
 
       
         <view class="book-info-style">
-          <view>书名:{{item.title}}</view>
-          <view>作者:{{item.author}}\n</view>
-          <view>价格:{{item.price}}\n</view>
-          <view>出版信息:{{item.publisher}}\n</view>
-          <view>可借数量:{{item.qty}}\n</view>
+          <view>书名:{{item.bookName}}</view>     
+          <view>作者:{{item.author}}\n</view>   
+          <view>书类:{{item.bookKind}}\n</view>     
+          <view>出版社:{{item.press}}\n</view>   
+          <view>出版日期:{{item.publishData}}\n</view>      
          </view>
       </view>
 
