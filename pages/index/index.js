@@ -29,7 +29,6 @@ Page({
       scanType:['qrCode','barCode'],
       success:function(res){
         console.log(res);
-        console.log(res.result);
         myThis.setData({
           bookisbn: res.result,
         })
@@ -37,7 +36,7 @@ Page({
         // 确定是否提交
         wx.showModal({
           title: '提示',
-          content: bookisbn,
+          content: 'isbn:'+res.result+"\r\n"+'asd',
           success: function (res) {
             if (res.confirm) {
               console.log('用户点击确定')

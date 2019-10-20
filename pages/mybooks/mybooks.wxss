@@ -39,14 +39,16 @@
   background-color: #fff;
   flex: 0 0 66%;
   margin-left: 20rpx;
+  
 }
 
 .book-info-style {
-  height: 280rpx;
+  height: 260rpx;
   background-color: white;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  
 }
 
 .book-info-style view {
