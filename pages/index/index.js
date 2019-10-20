@@ -5,6 +5,9 @@ const app = getApp()
 Page({
   data: {
     bookisbn:"1",
+    bookList1: [
+      { ISBN13: "9789889955915", image: "/images/book-icon.png", bookName: "数据库挖掘", author: "斯塔夫", bookKind: "88", press: "华理出版社", publishData: "1" },
+    ],
     motto: 'Hello World',
     userInfo: {},
     hasUserInfo: false,
@@ -31,28 +34,26 @@ Page({
           bookisbn: res.result,
         })
 
-        wx.showToast({
-
-          title: '扫描成功',
-
-          icon: 'success',
-
-          duration: 2000
-
+        // 确定是否提交
+        wx.showModal({
+          title: '提示',
+          content: bookisbn,
+          success: function (res) {
+            if (res.confirm) {
+              console.log('用户点击确定')
+            } else if (res.cancel) {
+              console.log('用户点击取消')
+            }
+          }
         })
-
       },
+//扫描失败提示
       fail:function(err){
         console.log(err);
-
         wx.showToast({
-
           title: '扫描失败',
-
           icon: 'success',
-
           duration: 2000
-
         })
       }
 

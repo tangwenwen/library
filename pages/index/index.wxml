@@ -48,7 +48,7 @@
 
   </view>
   <scroll-view scroll-x="true" class="new-books-content" style="white-space: nowrap">
-    <image wx:for="{{newBooks}}" src="{{item.image}}" bindtap="toBorrowBook" data-isbn="{{item.isbn}}" data-bookid="{{item._id}}" class="new-book"></image>
+
 
        <view><text>内容为：{{bookisbn}}</text></view>
   </scroll-view>
