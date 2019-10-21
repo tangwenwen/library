@@ -22,9 +22,7 @@ Page({
    //扫码函数
   saoma: function () {
     var myThis = this;
-    
     wx.scanCode({
-      
       onlyFromCamera:false,
       scanType:['qrCode','barCode'],
       success:function(res){
@@ -32,25 +30,34 @@ Page({
         myThis.setData({
           bookisbn: res.result,
         })
-
-        // 确定是否提交
-        wx.showModal({
+        //利用isbn码res.result获取书的书名、作者、书类、出版社和出版日期
+         wx.request({
+         url: '',
+         success(res) {
+       // 获取成功确定是否提交
+          wx.showModal({
           title: '提示',
-          content: 'isbn:'+res.result+"\r\n"+'asd',
-          success: function (res) {
+          content: 'isbn:' + res.result + "\r\n" + res.charSet,
+           success: function (res) {
             if (res.confirm) {
-              console.log('用户点击确定')
-            } else if (res.cancel) {
-              console.log('用户点击取消')
+            console.log('用户点击确定')
+            }else if (res.cancel) {
+            console.log('用户点击取消')
             }
-          }
-        })
-      },
-//扫描失败提示
+           }
+          })
+          },
+  //获取失败提示
+     fail: function (){
+
+     }
+        })  
+ },
+//无法扫描提示
       fail:function(err){
         console.log(err);
         wx.showToast({
-          title: '扫描失败',
+          title: '扫描',
           icon: 'success',
           duration: 2000
         })
