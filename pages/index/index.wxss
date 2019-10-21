@@ -181,3 +181,15 @@
 .new-books-content image:first-child{
   margin-left: 20rpx;
 }
+
+.image {
+  width: 150rpx;
+  height: 120rpx;
+  margin: 10rpx 20rpx 0rpx 0rpx;
+  float: left;
+}
+view.bookname{
+  padding-left:70px;
+  display: flex;
+
+}
