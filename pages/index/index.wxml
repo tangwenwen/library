@@ -34,22 +34,34 @@
     <view class='paragraph'>图书借阅平台是一个能让众多热爱读书的朋友们互相分享自己喜爱的书籍的优秀平台</view>
      <view class='paragraph'>希望各位能找到和自己志同道合的朋友们，一起沉浸在书的海洋之中</view>
   </view>
+
+
   <view class='scan'>
     <button class='scan-btn' bindtap='saoma'>
     <image src="../../images/scan.png" class="scan-img"></image>添加图书
     </button>
-  </view>
+
+    <view class='container'>
+  <modal title="图书录入" hidden="{{modalHidden}}" bindconfirm="modalConfirm" bindcancel="modalCandel">
+    <view>
+      <image class="image" src="{{bookimg}}" mode='aspectFill'></image>
+    </view>
+    <view>书名:{{bookname}}</view> 
+    <view>作者:{{author}}</view> 
+    <view>isbn:{{isbn}}</view> 
+    <view class="bookname">出版社:{{press}}</view> 
+  </modal>
+
 </view>
-<view class='new-books'>
+
+  </view>
+
+</view>
+<!-- <view class='new-books'>
   <view class='new-books-header'>
     <text class="new-books-header-title">新书速递</text>
-
-
-
   </view>
   <scroll-view scroll-x="true" class="new-books-content" style="white-space: nowrap">
-
-
        <view><text>内容为：{{bookisbn}}</text></view>
   </scroll-view>
-</view>
+</view> -->

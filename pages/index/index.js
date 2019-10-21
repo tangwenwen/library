@@ -4,10 +4,15 @@ const app = getApp()
 
 Page({
   data: {
+    bookname: "1",
+    author: "1",
+    isbn: "1",
+    press: "1",
+    bookimg: "http://tangwenwen.top/img/9787113250348.jpg",
+    //设置弹窗一开始为隐藏
+    modalHidden: true,   
+   
     bookisbn:"1",
-    bookList1: [
-      { ISBN13: "9789889955915", image: "/images/book-icon.png", bookName: "数据库挖掘", author: "斯塔夫", bookKind: "88", press: "华理出版社", publishData: "1" },
-    ],
     motto: 'Hello World',
     userInfo: {},
     hasUserInfo: false,
@@ -19,9 +24,32 @@ Page({
       url: '../logs/logs'
     })
   },
+
+  //显示弹窗
+  buttonTap: function () {
+    this.setData({
+      modalHidden: false
+    })
+  },
+  //点击取消
+  modalCandel: function () {
+    // do something
+    this.setData({
+      modalHidden: true
+    })
+  },
+  //点击确认
+  modalConfirm: function () {
+    // do something
+    this.setData({
+      modalHidden: true
+    })
+  },
+
    //扫码函数
   saoma: function () {
     var myThis = this;
+    var bookisbn='';
     wx.scanCode({
       onlyFromCamera:false,
       scanType:['qrCode','barCode'],
@@ -29,7 +57,7 @@ Page({
         myThis.setData({
           bookisbn: res.result,
         })
-				//console.log(myThis.data.bookisbn);
+       
         //利用isbn码res.result获取书的书名、作者、书类、出版社和出版日期
          wx.request({
 					 url: 'http://localhost:8080/wechat/servlet/IndexServlet',
@@ -42,18 +70,28 @@ Page({
 					 },
          success(res) {
 					 console.log(res.data);
+           var myThis1 = this;
+           myThis.setData({
+             bookname: res.data.bookname,
+             author: res.data.author,
+             isbn: res.data.isbn,
+             press: res.data.press,
+            //  bookimg: res.data.image,
+             modalHidden: false,
+           })
           // 获取成功确定是否提交
-          wx.showModal({
-          title: '扫码结果',
-						content: '书名:' + res.data.bookname+ "\r\n" + 'author:' + res.data.author + "\r\n" + 'isbn:' + res.data.isbn + "\r\n" + 'press:' + res.data.press + "\r\n",
-           success: function (res) {
-            if (res.confirm) {
-            console.log('用户点击确定')
-            }else if (res.cancel) {
-            console.log('用户点击取消')
-            }
-           }
-          })
+          // wx.showModal({
+          // title: '扫码结果',
+					// 	content: '书名:' + res.data.bookname+ "\r\n" + 'author:' + res.data.author + "\r\n" + 'isbn:' + res.data.isbn + "\r\n" + 'press:' + res.data.press + "\r\n",
+          //  success: function (res) {
+          //   if (res.confirm) {
+          //   console.log('用户点击确定')
+            
+          //   }else if (res.cancel) {
+          //   console.log('用户点击取消')
+          //   }
+          //  }
+          // })
           },
          //获取失败提示
           fail: function (){
@@ -70,9 +108,7 @@ Page({
           duration: 2000
         })
       }
-
     })
-    
   },
 
   onLoad: function () {
@@ -103,6 +139,8 @@ Page({
       })
     }
   },
+
+
   getUserInfo: function(e) {
     console.log(e)
     app.globalData.userInfo = e.detail.userInfo
@@ -111,4 +149,6 @@ Page({
       hasUserInfo: true
     })
   }
+
+
 })
