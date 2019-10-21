@@ -12,8 +12,7 @@
       <view class="book-info">
         <view class="book-info-style">
           <view>书名:{{item.bookName}}</view>     
-          <view>作者:{{item.author}}\n</view>   
-          <view>书类:{{item.bookKind}}\n</view>     
+          <view>作者:{{item.author}}\n</view>       
           <view>出版社:{{item.press}}\n</view>   
           <view>出版日期:{{item.publishData}}\n</view>      
          </view>

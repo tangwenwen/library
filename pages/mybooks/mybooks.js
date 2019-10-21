@@ -1,14 +1,12 @@
 Page({
-
   /**
    * 页面的初始数据
    */
   data: {
+		userid: 1 ,
+
     bookList: [
-      { ISBN13: "9789889955915", image: "/images/book-icon.png", bookName: "数据库挖掘", author: "斯塔夫", bookKind: "88", press: "华理出版社", publishData: "1" },
-      { ISBN13: "9789889955915", image: "/images/book-icon.png", bookName: "数据库挖掘", author: "斯塔夫", bookKind: "88", press: "华理出版社", publishData: "1" },
-      { ISBN13: "9789889955915", image: "/images/book-icon.png", bookName: "数据库挖掘", author: "斯塔夫", bookKind: "88", press: "华理出版社", publishData: "1" },
-      { ISBN13: "9789889955915", image: "/images/book-icon.png", bookName: "数据库挖掘", author: "斯塔夫", bookKind: "88", press: "华理出版社", publishData: "1" },
+      { ISBN13: "", image: "", bookName: "", author: "", press: "", publishData: "" },
     ]
   },
 
@@ -17,7 +15,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+		
   },
 
 
@@ -34,7 +32,30 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+		var that = this;
+		console.log(this.data.bookList[0]);
+		wx.request({
+			url: 'http://localhost:8080/wechat/servlet/mybookServlet',
+			method: 'GET',
+			header: {
+				'Content-Type': 'application/json',
+			},
+			data: {
+				userid: that.data.userid,
+			},
+			success(res) {
+				that.setData({
+						  'bookList[0].ISBN13': res.data.isbn,
+              'bookList[0].image': res.data.imgpath,
+				 	    'bookList[0].bookName': res.data.bookname,
+				  	 	'bookList[0].author': res.data.author,
+			  	 	 	'bookList[0].press': res.data.press,
+				  		'bookList[0].publishData': res.data.publishData
+				});
+			},
+			fail: function () {
+			}
+		})
   },
 
   /**

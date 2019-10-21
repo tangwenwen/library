@@ -8,7 +8,7 @@ Page({
     author: "1",
     isbn: "1",
     press: "1",
-    bookimg: "http://tangwenwen.top/img/9787113250348.jpg",
+    bookimg: "1",
     //设置弹窗一开始为隐藏
     modalHidden: true,   
    
@@ -76,7 +76,7 @@ Page({
              author: res.data.author,
              isbn: res.data.isbn,
              press: res.data.press,
-            //  bookimg: res.data.image,
+             bookimg: res.data.imgpath,
              modalHidden: false,
            })
           // 获取成功确定是否提交
