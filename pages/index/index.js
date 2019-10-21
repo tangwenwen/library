@@ -26,18 +26,26 @@ Page({
       onlyFromCamera:false,
       scanType:['qrCode','barCode'],
       success:function(res){
-        console.log(res);
         myThis.setData({
           bookisbn: res.result,
         })
+				//console.log(myThis.data.bookisbn);
         //利用isbn码res.result获取书的书名、作者、书类、出版社和出版日期
          wx.request({
-         url: '',
+					 url: 'http://localhost:8080/wechat/servlet/IndexServlet',
+					 method:'GET',
+					 header: {
+						 'Content-Type': 'application/json',
+					 },
+					 data:{
+						 thisisbn:myThis.data.bookisbn,
+					 },
          success(res) {
-       // 获取成功确定是否提交
+					 console.log(res.data);
+          // 获取成功确定是否提交
           wx.showModal({
-          title: '提示',
-          content: 'isbn:' + res.result + "\r\n" + res.charSet,
+          title: '扫码结果',
+						content: '书名:' + res.data.bookname+ "\r\n" + 'author:' + res.data.author + "\r\n" + 'isbn:' + res.data.isbn + "\r\n" + 'press:' + res.data.press + "\r\n",
            success: function (res) {
             if (res.confirm) {
             console.log('用户点击确定')
@@ -47,10 +55,10 @@ Page({
            }
           })
           },
-  //获取失败提示
-     fail: function (){
+         //获取失败提示
+          fail: function (){
 
-     }
+          }
         })  
  },
 //无法扫描提示
