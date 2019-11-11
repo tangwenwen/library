@@ -1,0 +1,46 @@
+<!--pages/friendgroup/friendgroup.wxml-->
+<view scroll-y="true">
+<view class="main-wrapper-1" >
+    <view class="book-list-1" wx:for="{{friendgroup}}"  data-id='{{item.groupname}}' bindtap="goTogroup">
+      <view class="book-image-1"  bindtap="buttonTap">
+        <image src="{{image}}" mode="aspectFit"></image>
+      </view>
+      <view class="book-info-1">
+        <view class="book-info-1-style">
+          <view>书圈号码:{{item.groupname}}</view>     
+          <view>群人数:{{item.groupnumber}}\n</view>     
+        </view>
+      </view>
+    </view>
+</view>
+</view>
+
+
+ <!-- //设置图书弹窗 -->
+ 
+ <view class='container'>
+
+<my-modal show="{{modalHidden}}" title="群内图书" height="95%" bindcancel="modalCandel" bindconfirm="modalConfirm">
+  <!-- <modal title="群内图书"  hidden="{{modalHidden}}" bindconfirm="modalConfirm" bindcancel="modalCandel"> -->
+   <view   class="book-list" wx:for="{{bookList}}" wx:key="ISBN13" data-qty="{{item.qty}}" data-isbn='{{item.ISBN13}}' bindtap="goToDetailPage" >
+      <view class="book-image"  bindtap="buttonTap">
+        <image src="{{item.image}}" mode="aspectFit"></image>
+      </view>
+      <view class="book-info">
+        <view class="book-info-style">
+          <view>书名:{{item.bookName}}</view>     
+          <view>作者:{{item.author}}\n</view>   
+          <view>书类:{{item.bookKind}}\n</view>     
+          <view>出版社:{{item.press}}\n</view>   
+          <view>出版日期:{{item.publishData}}\n</view>       
+        </view>
+      </view>
+    </view>
+ 
+
+     <!-- </modal> -->
+</my-modal>
+
+
+</view>
+

@@ -2,20 +2,68 @@ Page({
   /**
    * 页面的初始数据
    */
+    //bookname:书名,author：作者,isbn,press：出版社,bookkind：书类,bookimg：书图片,publishdata：出版日期,readerobject：适宜人群
   data: {
+    modalHidden: true,
+    bookname: "计算机科学与技术导论(第2版普通高等教育十三五规划教材)",
+    author: "王建国",
+    isbn: "9787113250348",
+    press: "中国铁道出版社",
+    bookimg:"http://tangwenwen.top/img/9787113250348.jpg",
+    bookkind: "计算机类",
+    publishdata: "2019-01-01",
+    readerobject: "本科及以上",
 		userid: 1 ,
-
+    
     bookList: [
-      { ISBN13: "", image: "", bookName: "", author: "", press: "", publishData: "" },
+      { ISBN13: "9787113250348", image: "http://tangwenwen.top/img/9787113250348.jpg", bookName: "计算机科学与技术导论(第2版普通高等教育十三五规划教材)", author: "王建国", press: "中国铁道出版社", publishData: "2019-01-01" },
+   
     ]
   },
 
+  //显示弹窗
+  buttonTap: function () {
+    // var isbn1 = e.currentTarget.dataset.id;
+    // console.log(isbn1);
+    this.setData({
+      modalHidden: false,
+      // isbn:isbn1
+    })
+  },
+  //点击取消
+  modalCandel: function () {
+    // do something
+    this.setData({
+      modalHidden: true
+    })
+  },
+  //点击确认
+  modalConfirm: function () {
+    // do something
+    this.setData({
+      modalHidden: true
+    })
+  },
+ 
+  goToDetailPage: function (e) {
+    var that = this;
+    var isbn1 = e.currentTarget.dataset.isbn
+    console.log(isbn1)
+    
+//通过点击书籍获取的isbn1来取得书籍的所有信息
+    wx.request({
+     
+    })
+    
+  },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-		
+
+
+
   },
 
 
