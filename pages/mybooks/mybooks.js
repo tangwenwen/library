@@ -5,7 +5,7 @@ Page({
     //bookname:书名,author：作者,isbn,press：出版社,bookkind：书类,bookimg：书图片,publishdata：出版日期,readerobject：适宜人群
   data: {
     modalHidden: true,
-    bookname: "计算机科学与技术导论(第2版普通高等教育十三五规划教材)",
+    bookname: "计算机科学与技术导论",
     author: "王建国",
     isbn: "9787113250348",
     press: "中国铁道出版社",
@@ -14,10 +14,13 @@ Page({
     publishdata: "2019-01-01",
     readerobject: "本科及以上",
 		userid: 1 ,
+    lend: 0,
     
     bookList: [
-      { ISBN13: "9787113250348", image: "http://tangwenwen.top/img/9787113250348.jpg", bookName: "计算机科学与技术导论(第2版普通高等教育十三五规划教材)", author: "王建国", press: "中国铁道出版社", publishData: "2019-01-01" },
-   
+      { ISBN13: "9787113250348", image: "http://tangwenwen.top/img/9787113250348.jpg", bookName: "计算机科学与技术导论", author: "王建国", press: "中国铁道出版社", publishData: "2019-01-01" },
+      { ISBN13: "9787113250348", image: "http://tangwenwen.top/img/9787113250348.jpg", bookName: "计算机科学与技术导论", author: "王建国", press: "中国铁道出版社", publishData: "2019-01-01" },
+      { ISBN13: "9787113250348", image: "http://tangwenwen.top/img/9787113250348.jpg", bookName: "计算机科学与技术导论", author: "王建国", press: "中国铁道出版社", publishData: "2019-01-01" },
+      { ISBN13: "9787113250348", image: "http://tangwenwen.top/img/9787113250348.jpg", bookName: "计算机科学与技术导论", author: "王建国", press: "中国铁道出版社", publishData: "2019-01-01" }
     ]
   },
 
@@ -48,9 +51,11 @@ Page({
   goToDetailPage: function (e) {
     var that = this;
     var isbn1 = e.currentTarget.dataset.isbn
-    console.log(isbn1)
-    
-//通过点击书籍获取的isbn1来取得书籍的所有信息
+    that.setData({
+      isbn: isbn1
+    })
+    console.log(that.data.isbn)
+//通过点击书籍获取的isbn来取得书籍的所有信息
     wx.request({
      
     })

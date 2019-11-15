@@ -3,10 +3,10 @@
     "pages/index/index",
     "pages/logs/logs",
     "pages/bookupload/bookupload",
-    "pages/myfriends/myfriends",
     "pages/mybooks/mybooks",
     "pages/friendgroup/friendgroup",
-    "pages/tachuang/tachuang"
+    "pages/tachuang/tachuang",
+    "pages/personal/personal"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -24,12 +24,6 @@
         "selectedIconPath": "images/click.png"
       },
       {
-        "pagePath": "pages/myfriends/myfriends",
-        "text": "我的朋友",
-        "iconPath": "images/general.png",
-        "selectedIconPath": "images/click.png"
-      },
-      {
         "pagePath": "pages/mybooks/mybooks",
         "text": "我的图书",
         "iconPath": "images/general.png",
@@ -38,6 +32,12 @@
       {
         "pagePath": "pages/friendgroup/friendgroup",
         "text": "朋友书圈",
+        "iconPath": "images/general.png",
+        "selectedIconPath": "images/click.png"
+      },
+      {
+        "pagePath": "pages/personal/personal",
+        "text": "个人中心",
         "iconPath": "images/general.png",
         "selectedIconPath": "images/click.png"
       }

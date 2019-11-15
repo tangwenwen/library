@@ -1,0 +1,93 @@
+<!--pages/personal/personal.wxml-->
+
+<view class="mine-wrapper">
+  <view class="avatar-wrapper">
+    <view>
+      <view class="avatar">
+        <image style="border-radius:50%;" src="{{avatarUrl0}}"></image>
+      </view>
+      <view class="text">
+        <text>{{nickName0}}</text>
+      </view>
+    </view>
+  </view>
+  <view class='content' bindtap="lendbuttonTap">已借图书</view>
+  <view class="divLine"></view>
+  <view class='content' bindtap="tolendbuttonTap">借出图书</view>
+  <view class="divLine"></view>
+  <view class='content' bindtap="groupbuttonTap">添加书圈</view>
+  <view class="divLine"></view>
+<button wx:if="{{nickName0==0}}" open-type="getUserInfo" lang="zh_CN" bindgetuserinfo="onGotUserInfo">用户登入</button>
+</view>
+
+
+ <!-- 已借图书弹窗 -->
+ <view class='container'>
+<my-modal show="{{lendmodalHidden}}" title="已借图书" height="95%" bindcancel="lendmodalCandel" bindconfirm="lendmodalConfirm" >
+      <view   class="book-list" wx:for="{{lendbookList}}" wx:key="ISBN13"  data-isbn='{{item.ISBN13}}' 
+   data-ownuser='{{item.ownUserid}}' bindtap="goToDetailPage" >
+      <view class="book-image" bindtap="buttonTap2">
+        <image src="{{item.image}}" mode="aspectFit"></image>
+      </view>
+      <view class="book-info">
+        <view class="book-info-style">
+          <view>书名:{{item.bookName}}</view>     
+          <view>作者:{{item.author}}\n</view>      
+          <view>出版社:{{item.press}}\n</view>   
+          <view>出版日期:{{item.publishData}}\n</view>       
+          <view>持有人:{{item.ownUserid}}\n</view> 
+        </view>
+      </view>
+    </view>
+</my-modal>
+</view>
+
+<!-- //设置已借图书归还弹窗 -->
+ <view class='container'>
+  <modal title="图书信息"  hidden="{{modalHidden2}}" bindconfirm="modalConfirm2" bindcancel="modalCandel2" 
+   cancel-text="离开" confirm-text="归还">
+    <view>
+      <image class="image" src="{{bookimg}}" mode='aspectFill'></image>
+    </view>
+    <view class="ziti">
+    <view>书名:{{bookname}}</view> 
+    <view>作者:{{author}}</view>  
+    <view>出版社:{{press}}</view> 
+    <view>出版日期:{{publishdata}}</view> 
+    <view>适宜群众:{{readerobject}}</view> 
+    </view>
+  </modal>
+  </view>
+
+
+<!-- 借出图书弹窗 -->
+ <view class='container'>
+<my-modal show="{{tolendmodalHidden}}" title="借出图书" height="95%" bindcancel="tolendmodalCandel" bindconfirm="tolendmodalConfirm">
+      <view   class="book-list" wx:for="{{tolendbookList}}" wx:key="ISBN13"  data-isbn='{{item.ISBN13}}'  >
+      <view class="book-image">
+        <image src="{{item.image}}" mode="aspectFit"></image>
+      </view>
+      <view class="book-info">
+        <view class="book-info-style">
+          <view>书名:{{item.bookName}}</view>     
+          <view>作者:{{item.author}}\n</view>      
+          <view>出版社:{{item.press}}\n</view>   
+          <view>出版日期:{{item.publishData}}\n</view>       
+          <view>借阅人:{{item.lendUserid}}\n</view> 
+        </view>
+      </view>
+    </view>
+</my-modal>
+</view>
+
+<!-- 添加书圈 -->
+ <view >
+  <modal title="添加书圈"  hidden="{{modalHidden3}}" bindconfirm="modalConfirm3" bindcancel="modalCandel3" 
+   cancel-text="离开" confirm-text="添加">
+   <view class="itemView">书圈号码：
+ <input class="input" name="groupName" placeholder="请输入书圈号码"
+ bindinput="groupNameInput"/>
+ </view>
+  </modal>
+  </view>
+

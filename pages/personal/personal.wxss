@@ -1,10 +1,47 @@
-/* pages/myfriends/myfriends.wxss */
-.float {
-  position: fixed;
-  left: 0;
-  top: 0;
-  width: 100%;
+/* pages/personal/personal.wxss */
+.avatar-wrapper {
+  background: #1b82d1;
+  padding: 25px 0;
 }
+ 
+.avatar-wrapper .avatar {
+  margin: 0 auto;
+  text-align: center;
+}
+ 
+.avatar-wrapper .avatar image {
+  width: 100px;
+  height: 100px;
+}
+ 
+.avatar-wrapper .text {
+  text-align: center;
+  color: #fff;
+}
+ 
+
+ 
+.content{
+  display: flex;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-left:20px;
+}
+ 
+/*分割线样式*/
+.divLine{
+ background: #E0E3DA;
+ width: 100%;
+ height: 5rpx;
+}
+ 
+.arrows image {
+  vertical-align: middle;
+  width: 15px;
+  height: 15px;
+  margin-left: 500rpx;
+}
+
 
 .main-wrapper {
   margin-top: 96rpx;
@@ -17,7 +54,7 @@
   align-items: flex-start;
   justify-content: flex-start;
   box-sizing: border-box;
-  margin-top: 12rpx;
+  margin-top: 20rpx;
   background-color: #fff;
   height: 200rpx;
 }
@@ -26,13 +63,13 @@
   flex: 0 0 32%;
   /* box-sizing: border-box;
   min-height: 280rpx; */
-  height: 200rpx;
+  height: 190rpx;
 }
 
 .book-image image {
   margin-top: 4rpx;
-  height: 192rpx;
-  width: 192rpx;
+  height: 180rpx;
+  width: 180rpx;
 }
 
 .book-info {
@@ -43,7 +80,7 @@
 }
 
 .book-info-style {
-  height: 185rpx;
+  height: 190rpx;
   background-color: white;
   display: flex;
   flex-direction: column;
@@ -73,10 +110,4 @@
 .ziti{
   font-size:12px;
   margin-left:70px;
-}
-
-.lend{
-font-size:15px;
-margin-left:70px;
-color:blue;
 }
