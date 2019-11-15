@@ -51,6 +51,10 @@
   
 }
 
+.juli{
+margin-top: 30rpx;
+}
+
 .book-info-1-style view {
   font-size: 28rpx;
   text-overflow: ellipsis;
@@ -76,20 +80,20 @@
   box-sizing: border-box;
   margin-top: 20rpx;
   background-color: #fff;
-  height: 160rpx;
+  height: 200rpx;
 }
 
 .book-image {
   flex: 0 0 32%;
   /* box-sizing: border-box;
   min-height: 280rpx; */
-  height: 150rpx;
+  height: 190rpx;
 }
 
 .book-image image {
   margin-top: 4rpx;
-  height: 140rpx;
-  width: 140rpx;
+  height: 180rpx;
+  width: 180rpx;
 }
 
 .book-info {
@@ -100,7 +104,7 @@
 }
 
 .book-info-style {
-  height: 150rpx;
+  height: 190rpx;
   background-color: white;
   display: flex;
   flex-direction: column;

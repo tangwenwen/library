@@ -17,10 +17,7 @@ Page({
     lend: 0,
     
     bookList: [
-      { ISBN13: "9787113250348", image: "http://tangwenwen.top/img/9787113250348.jpg", bookName: "计算机科学与技术导论", author: "王建国", press: "中国铁道出版社", publishData: "2019-01-01" },
-      { ISBN13: "9787113250348", image: "http://tangwenwen.top/img/9787113250348.jpg", bookName: "计算机科学与技术导论", author: "王建国", press: "中国铁道出版社", publishData: "2019-01-01" },
-      { ISBN13: "9787113250348", image: "http://tangwenwen.top/img/9787113250348.jpg", bookName: "计算机科学与技术导论", author: "王建国", press: "中国铁道出版社", publishData: "2019-01-01" },
-      { ISBN13: "9787113250348", image: "http://tangwenwen.top/img/9787113250348.jpg", bookName: "计算机科学与技术导论", author: "王建国", press: "中国铁道出版社", publishData: "2019-01-01" }
+      { ISBN13: "9787113250348", image: "http://tangwenwen.top/img/9787113250348.jpg", bookName: "计算机科学与技术导论", author: "王建国", press: "中国铁道出版社", publishData: "2019-01-01", bookKind:"计算机类" }
     ]
   },
 
@@ -55,9 +52,23 @@ Page({
       isbn: isbn1
     })
     console.log(that.data.isbn)
-//通过点击书籍获取的isbn来取得书籍的所有信息
+//通过点击书籍获取的isbn和用户的账号来取得书籍的所有信息并显示书籍是否已借出
     wx.request({
-     
+      url: '',
+      method: 'GET',
+      header: {
+        'Content-Type': 'application/json',
+      },
+      data: {
+
+      },
+      success(res) {
+        that.setData({
+
+        });
+      },
+      fail: function () {
+      }
     })
     
   },

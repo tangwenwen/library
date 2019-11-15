@@ -34,7 +34,6 @@
     <view>出版日期:{{publishdata}}</view> 
     <view>适宜群众:{{readerobject}}</view> 
     </view>
-
     <text  class="lend" wx:if="{{lend==0}}"> 未借出 </text>
     <text class="lend" wx:if="{{lend==1}}"> 已借出 </text>
   </modal>
