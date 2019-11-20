@@ -38,11 +38,25 @@ Page({
       modalHidden: true
     })
   },
-  //点击确认
+  //点击确认 将书的isbn和用户的openid一起录入到数据库
   modalConfirm: function () {
-    // do something
-    this.setData({
-      modalHidden: true
+    wx.request({
+      url: '',
+      method: 'GET',
+      header: {
+        'Content-Type': 'application/json',
+      },
+      data: {
+
+      },
+      success(res) {
+        that.setData({
+
+        });
+
+      },
+      fail: function () {
+      }
     })
   },
 

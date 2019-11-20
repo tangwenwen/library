@@ -42,7 +42,7 @@
     </button>
 
     <view class='container'>
-  <modal title="图书录入" hidden="{{modalHidden}}" bindconfirm="modalConfirm" bindcancel="modalCandel">
+  <modal title="图书录入" hidden="{{modalHidden}}" bindconfirm="modalConfirm" bindcancel="modalCandel"  cancel-text="离开" confirm-text="录入">
     <view>
       <image class="image" src="{{bookimg}}" mode='aspectFill'></image>
     </view>
